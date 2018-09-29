@@ -16,7 +16,7 @@
             <p>
                 hippiezhou
             </p>
-            <a href="https://mdbootstrap.com/" class="btn btn-indigo">Get it now</a>
+            <dot:LinkButton Text="Get it now" Click="{command: Submit()}" class="btn btn-indigo"></dot:LinkButton>
         </div>
     </div>
     <div class="row wow fadeIn">
@@ -109,4 +109,5 @@
             </ul>
         </nav>
     </div>
+
 </dot:Content>
