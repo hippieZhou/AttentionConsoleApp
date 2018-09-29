@@ -26,7 +26,7 @@ namespace Attention.Spider
         private static readonly HttpClient _httpClient;
         static Spider()
         {
-            https://bing.ioliu.cn/?p=4
+            //https://bing.ioliu.cn/?p=4
             //_httpClient = new HttpClient() { BaseAddress = new Uri(BASE_ADDRESS) };
             //_httpClient.DefaultRequestHeaders.Connection.Add("keep-alive");
             //_httpClient.SendAsync(new HttpRequestMessage

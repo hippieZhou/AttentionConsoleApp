@@ -39,7 +39,7 @@ namespace Attention.BLL.Clients
         private async Task<string> GetBingJsonAsync()
         {
             string format = "js";
-            int idx = 0;
+            int idx = -1;
             int n = 8;
             string pid = "hp";
             int quiz = 1;

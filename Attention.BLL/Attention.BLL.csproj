@@ -1,15 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Attention.DAL\Attention.DAL.csproj" />
   </ItemGroup>
-
 </Project>

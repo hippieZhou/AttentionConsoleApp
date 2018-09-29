@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Blend for Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention", "Attention\Attention.csproj", "{F1014C13-3D97-4B7E-BAA1-6DAECCD574D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention", "Attention\Attention.csproj", "{F1014C13-3D97-4B7E-BAA1-6DAECCD574D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention.DAL", "Attention.DAL\Attention.DAL.csproj", "{765CED8F-CF86-4728-98BF-D49594CE1226}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention.BLL", "Attention.BLL\Attention.BLL.csproj", "{F1664736-94F4-4C7B-B52A-C927BF0B8374}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.BLL", "Attention.BLL\Attention.BLL.csproj", "{F1664736-94F4-4C7B-B52A-C927BF0B8374}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.Spider", "Attention.Spider\Attention.Spider.csproj", "{77DB0A6C-9E93-46B8-89C8-883FDD45C68F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.WPF", "Attention.WPF\Attention.WPF.csproj", "{78C1ABEC-B13B-4307-8F06-C153A1254CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.DAL", "Attention.DAL\Attention.DAL.csproj", "{1D0E0144-3358-4E71-980A-D13A96B421BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		{F1014C13-3D97-4B7E-BAA1-6DAECCD574D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1014C13-3D97-4B7E-BAA1-6DAECCD574D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1014C13-3D97-4B7E-BAA1-6DAECCD574D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{765CED8F-CF86-4728-98BF-D49594CE1226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{765CED8F-CF86-4728-98BF-D49594CE1226}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{765CED8F-CF86-4728-98BF-D49594CE1226}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{765CED8F-CF86-4728-98BF-D49594CE1226}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F1664736-94F4-4C7B-B52A-C927BF0B8374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1664736-94F4-4C7B-B52A-C927BF0B8374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1664736-94F4-4C7B-B52A-C927BF0B8374}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{77DB0A6C-9E93-46B8-89C8-883FDD45C68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77DB0A6C-9E93-46B8-89C8-883FDD45C68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77DB0A6C-9E93-46B8-89C8-883FDD45C68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78C1ABEC-B13B-4307-8F06-C153A1254CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C1ABEC-B13B-4307-8F06-C153A1254CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C1ABEC-B13B-4307-8F06-C153A1254CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C1ABEC-B13B-4307-8F06-C153A1254CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D0E0144-3358-4E71-980A-D13A96B421BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0E0144-3358-4E71-980A-D13A96B421BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0E0144-3358-4E71-980A-D13A96B421BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0E0144-3358-4E71-980A-D13A96B421BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
