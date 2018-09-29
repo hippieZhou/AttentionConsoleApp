@@ -1,0 +1,71 @@
+﻿@viewModel Attention.App.Web.ViewModels.BingViewModel, Attention.App.Web
+@masterPage Views/Shell.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="row pt-4">
+        <div class="col-md-7 mb-4">
+            <div class="view overlay z-depth-1-half">
+                <img src="https://cn.bing.com/az/hprichbg/rb/GoldBridge_EN-CN5579326717_1920x1080.jpg" class="card-img-top" alt="">
+                <div class="mask rgba-white-light"></div>
+            </div>
+        </div>
+
+        <div class="col-md-5 mb-4">
+            <h2>2018-09-30</h2>
+            <hr>
+            <p>
+                hippiezhou
+            </p>
+            <a href="https://mdbootstrap.com/" class="btn btn-indigo">Get it now</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card">
+                <div class="view overlay zoom">
+                    <img src="https://cn.bing.com/az/hprichbg/rb/GoldBridge_EN-CN5579326717_1920x1080.jpg" class="card-img-top" alt="">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+
+                    <h4 class="card-title">2018-09-30</h4>
+                    <p class="card-text">hippiezhou</p>
+                    <a href="#!" class="btn btn-indigo">Get it</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card">
+                <div class="view overlay zoom">
+                    <img src="https://cn.bing.com/az/hprichbg/rb/GoldBridge_EN-CN5579326717_1920x1080.jpg" class="card-img-top" alt="">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+
+                    <h4 class="card-title">2018-09-30</h4>
+                    <p class="card-text">hippiezhou</p>
+                    <a href="#!" class="btn btn-indigo">Get it</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card">
+                <div class="view overlay zoom">
+                    <img src="https://cn.bing.com/az/hprichbg/rb/GoldBridge_EN-CN5579326717_1920x1080.jpg" class="card-img-top" alt="">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">2018-09-30</h4>
+                    <p class="card-text">hippiezhou</p>
+                    <a href="#!" class="btn btn-indigo">Get it</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</dot:Content>
