@@ -1,5 +1,7 @@
 ﻿@using Attention.BLL.Models
-@model List<BingModel>
+@using Attention.App.Web.Utils
+
+@model PaginatedList<BingModel>
 
 @{
     ViewData["Title"] = "Bing";
@@ -7,20 +9,20 @@
 
 <div class="row pt-4">
     <div class="col-md-7 mb-4">
-            <div class="view overlay z-depth-1-half">
-                <img src="@Model[0].Url" class="card-img-top" alt="">
-                <div class="mask rgba-white-light"></div>
-            </div>
+        <div class="view overlay z-depth-1-half">
+            <img src="@Model[0].Url" class="card-img-top" alt="">
+            <div class="mask rgba-white-light"></div>
         </div>
+    </div>
 
-        <div class="col-md-5 mb-4">
-            <h2>@Model[0].Enddate.ToString("yyyy-MM-dd")</h2>
-            <hr>
-            <p>
-                @Model[0].Copyright
-            </p>
-            <a href="https://mdbootstrap.com/" class="btn btn-indigo">Get it now !</a>
-        </div>
+    <div class="col-md-5 mb-4">
+        <h2>@Model[0].Enddate.ToString("yyyy-MM-dd")</h2>
+        <hr>
+        <p>
+            @Model[0].Copyright
+        </p>
+        <a href="https://mdbootstrap.com/" class="btn btn-indigo">Get it now !</a>
+    </div>
 </div>
 <div class="row">
     @for (int i = 1; i < Model.Count; i++)
@@ -34,7 +36,6 @@
                     </a>
                 </div>
                 <div class="card-body">
-
                     <h4 class="card-title">@Model[i].Enddate.ToString("yyyy-MM-dd")</h4>
                     <p class="card-text">@Model[i].Copyright</p>
                     <a href="#!" class="btn btn-indigo">Get it</a>
@@ -43,4 +44,25 @@
         </div>
     }
 </div>
-
+<div>
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <a asp-action="Bing"
+       asp-controller="Home"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-page="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Previous
+    </a>
+    <a asp-action="Bing"
+       asp-controller="Home"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-page="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Next
+    </a>
+</div>

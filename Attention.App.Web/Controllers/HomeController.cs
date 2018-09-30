@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Attention.App.Web.Models;
 using Attention.BLL.Services;
+using Attention.App.Web.Utils;
+using Attention.BLL.Models;
 
 namespace Attention.App.Web.Controllers
 {
@@ -22,10 +24,12 @@ namespace Attention.App.Web.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Bing()
+        public async Task<IActionResult> Bing(int pageIndex = 1)
         {
             var bings = await BingService.GetAllBingsAsync();
-            return View(bings.OrderBy(p => p.Enddate).Reverse().ToList());
+
+            PaginatedList<BingModel> list = PaginatedList<BingModel>.Create(bings.AsQueryable(), pageIndex, 7);
+            return View(list);
         }
 
         public IActionResult About()

@@ -42,7 +42,7 @@ namespace Attention.BLL.Services
             }
             dbContext.SaveChanges();
 
-            var bings = await dbContext.Bings.Select(
+            var bings = await dbContext.Bings.OrderByDescending(p=>p.Enddate).Select(
                 s => s.ConvertToBingModel()
                 ).ToListAsync();
 
