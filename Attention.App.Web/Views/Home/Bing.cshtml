@@ -1,0 +1,46 @@
+﻿@using Attention.BLL.Models
+@model List<BingModel>
+
+@{
+    ViewData["Title"] = "Bing";
+}
+
+<div class="row pt-4">
+    <div class="col-md-7 mb-4">
+            <div class="view overlay z-depth-1-half">
+                <img src="@Model[0].Url" class="card-img-top" alt="">
+                <div class="mask rgba-white-light"></div>
+            </div>
+        </div>
+
+        <div class="col-md-5 mb-4">
+            <h2>@Model[0].Enddate.ToString("yyyy-MM-dd")</h2>
+            <hr>
+            <p>
+                @Model[0].Copyright
+            </p>
+            <a href="https://mdbootstrap.com/" class="btn btn-indigo">Get it now !</a>
+        </div>
+</div>
+<div class="row">
+    @for (int i = 1; i < Model.Count; i++)
+    {
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card">
+                <div class="view overlay zoom">
+                    <img src="@Model[i].Url" class="card-img-top" alt="">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+
+                    <h4 class="card-title">@Model[i].Enddate.ToString("yyyy-MM-dd")</h4>
+                    <p class="card-text">@Model[i].Copyright</p>
+                    <a href="#!" class="btn btn-indigo">Get it</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

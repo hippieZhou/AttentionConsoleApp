@@ -1,20 +1,17 @@
-﻿@viewModel Attention.App.Web.ViewModels.ShellViewModel, Attention.App.Web
-
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Attention {{value: Title}}</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/mdb.min.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
 </head>
-</head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark special-color-dark pt-1">
             <div class="container">
@@ -30,10 +27,13 @@
                 <div class="collapse navbar-collapse" ID="basicExampleNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <dot:RouteLink Text="BING" RouteName="Bing" class="nav-link" />
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <dot:RouteLink Text="ABOUT" RouteName="About" class="nav-link" />
+                            <a asp-area="" asp-controller="Home" asp-action="Bing" class="navbar-brand">BING</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand">ABOUT</a>
                         </li>
                     </ul>
                     <form class="form-inline">
@@ -48,7 +48,7 @@
 
     <main>
         <div class="container">
-            <dot:ContentPlaceHolder ID="MainContent" />
+            @RenderBody()
         </div>
     </main>
 
@@ -83,10 +83,11 @@
             </ul>
         </div>
         <div class="footer-copyright text-center py-3">
-            © 2018 Copyright:
+            © @DateTime.Now.Year Copyright:
             <a href="https://mdbootstrap.com/bootstrap-tutorial/"> hippiezhou</a>
         </div>
     </footer>
+
     <script type="text/javascript" src="~/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="~/js/popper.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
