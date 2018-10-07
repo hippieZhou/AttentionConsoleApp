@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace Attention.App.Web.Utils
+namespace Attention.App.Web.Models
 {
     public class PaginatedList<T> : List<T>
     {

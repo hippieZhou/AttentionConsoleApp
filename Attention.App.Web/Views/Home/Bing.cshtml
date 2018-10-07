@@ -1,5 +1,4 @@
 ﻿@using Attention.BLL.Models
-@using Attention.App.Web.Utils
 
 @model PaginatedList<BingModel>
 
@@ -21,7 +20,14 @@
         <p>
             @Model[0].Copyright
         </p>
-        <a href="https://mdbootstrap.com/" class="btn btn-indigo">Get it now !</a>
+        <a target="_blank" href="https://mdbootstrap.com/getting-started/" class="btn btn-indigo btn-md">
+            Download
+            <i class="fa fa-download ml-1"></i>
+        </a>
+        <a target="_blank" href="https://mdbootstrap.com/components/" class="btn btn-indigo btn-md">
+            Live Show
+            <i class="fa fa-image ml-1"></i>
+        </a>
     </div>
 </div>
 <div class="row">
@@ -37,8 +43,10 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">@Model[i].Enddate.ToString("yyyy-MM-dd")</h4>
-                    <p class="card-text">@Model[i].Copyright</p>
-                    <a href="#!" class="btn btn-indigo">Get it</a>
+                    <a target="_blank" href="https://mdbootstrap.com/components/" class="btn btn-indigo btn-md">
+                        Live Show
+                        <i class="fa fa-image ml-1"></i>
+                    </a>
                 </div>
             </div>
         </div>
