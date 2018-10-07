@@ -10,7 +10,7 @@ namespace Attention.BLL.Utils
     {
         public static BingModel ConvertToBingModel(this Bing model)
         {
-            return new BingModel
+            return new Models.BingModel
             {
                 Id = model.Id,
                 Startdate = model.Startdate,
@@ -27,7 +27,7 @@ namespace Attention.BLL.Utils
                 Hsh = model.Hsh,
             };
         }
-        public static Bing ConvertToBingEntity(this BingModel model)
+        public static Bing ConvertToBingEntity(this Models.BingModel model)
         {
             return new Bing
             {
@@ -48,7 +48,7 @@ namespace Attention.BLL.Utils
         }
         public static BingModel ConvertToBingModel(this Image model)
         {
-            return new BingModel
+            return new Models.BingModel
             {
                 Startdate = DateTime.ParseExact(model.Startdate, "yyyyMMdd", null),
                 Enddate = DateTime.ParseExact(model.Enddate, "yyyyMMdd", null),
