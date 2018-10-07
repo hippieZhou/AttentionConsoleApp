@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
 
 namespace Attention.App.Web
 {
@@ -37,8 +38,19 @@ namespace Attention.App.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<AttentionDbContext>(options => { options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")); });
-            services.AddHttpClient<BingClient>();
+            services.AddDbContext<AttentionDbContext>(options =>
+            {
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            });
+            services.AddHttpClient<BingClient>()
+                .AddTransientHttpErrorPolicy(
+                builder => builder.WaitAndRetryAsync(new[]
+                {
+                    TimeSpan.FromSeconds(1),
+                    TimeSpan.FromSeconds(5),
+                    TimeSpan.FromSeconds(10)
+                }));
+
             services.AddScoped<BingService>();
         }
 

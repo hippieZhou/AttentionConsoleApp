@@ -26,25 +26,30 @@ namespace Attention.BLL.Services
 
         public async Task<List<BingModel>> GetAllBingsAsync()
         {
-            var olds = await dbContext.Bings.Select(
+            List<BingModel> olds = await dbContext.Bings.OrderByDescending(p => p.Enddate).Select(
                s => s.ConvertToBingModel()
              ).ToListAsync();
 
-            var today = await bingClient.GetBingModelsAsync();
-            foreach (var item in today.Images)
+            BingModel first = olds.FirstOrDefault();
+            if (first == null || first?.Enddate < DateTime.Now)
             {
-                var model = item.ConvertToBingModel();
-                var has = olds.FirstOrDefault(p => p.Startdate.Date == model.Startdate.Date);
-                if (has == null)
+                var today = await bingClient.GetBingModelsAsync();
+                foreach (var item in today.Images)
                 {
-                    await InsertBingAsync(model.ConvertToBingModel());
+                    BingModel model = item.ConvertToBingModel();
+                    BingModel has = olds.FirstOrDefault(p => p.Startdate.Date == model.Startdate.Date);
+                    if (has == null)
+                    {
+                        await InsertBingAsync(model.ConvertToBingModel());
+                    }
                 }
+                dbContext.SaveChanges();
             }
-            dbContext.SaveChanges();
 
-            var bings = await dbContext.Bings.OrderByDescending(p=>p.Enddate).Select(
-                s => s.ConvertToBingModel()
-                ).ToListAsync();
+            List<BingModel> bings = await dbContext.Bings.Where(p => p.Enddate <= DateTime.Now)
+                .OrderByDescending(p => p.Enddate)
+                .Select(s => s.ConvertToBingModel())
+                .ToListAsync();
 
             return bings;
         }
