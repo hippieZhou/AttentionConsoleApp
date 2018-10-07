@@ -25,7 +25,7 @@ namespace Attention.App.Spider
 
             services.AddHttpClient<BingClient>();
 
-            services.AddDbContext<AttentionDbContext>(options => { options.UseSqlite(configuration.GetConnectionString("DefaultConnection")); });
+            services.AddDbContext<ApplicationDbContext>(options => { options.UseSqlite(configuration.GetConnectionString("DefaultConnection")); });
 
             services.AddSingleton<BingService>();
 

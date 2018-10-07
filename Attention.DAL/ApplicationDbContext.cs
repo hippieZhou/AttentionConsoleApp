@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Attention.DAL
 {
-    public class AttentionDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<Bing> Bings { get; set; }
 
         public DbSet<Ioliu> Iolius { get; set; }
-        public AttentionDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
         }

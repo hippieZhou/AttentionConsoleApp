@@ -38,7 +38,7 @@ namespace Attention.App.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<AttentionDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });

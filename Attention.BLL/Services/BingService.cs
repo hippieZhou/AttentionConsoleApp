@@ -16,9 +16,9 @@ namespace Attention.BLL.Services
     public class BingService
     {
         private readonly BingClient bingClient;
-        private readonly AttentionDbContext dbContext;
+        private readonly ApplicationDbContext dbContext;
 
-        public BingService(BingClient httpClient, AttentionDbContext attentionDbContext)
+        public BingService(BingClient httpClient, ApplicationDbContext attentionDbContext)
         {
             bingClient = httpClient;
             dbContext = attentionDbContext;
