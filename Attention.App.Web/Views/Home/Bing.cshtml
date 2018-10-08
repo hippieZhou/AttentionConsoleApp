@@ -1,6 +1,6 @@
 ﻿@using Attention.BLL.Models
 
-@model PaginatedList<BingModel>
+@model PaginatedList<HippieModel>
 
 @{
     ViewData["Title"] = "Bing";
@@ -9,13 +9,13 @@
 <div class="row pt-4">
     <div class="col-md-7 mb-4">
         <div class="view overlay z-depth-1-half">
-            <img src="@Model[0].Url" class="card-img-top" alt="">
+            <img src="@Model[0].ImageUrl_1920x1080" class="card-img-top" alt="">
             <div class="mask rgba-white-light"></div>
         </div>
     </div>
 
     <div class="col-md-5 mb-4">
-        <h2>@Model[0].Enddate.ToString("yyyy-MM-dd")</h2>
+        <h2>@Model[0].DateTime.ToString("yyyy-MM-dd")</h2>
         <hr>
         <p>
             @Model[0].Copyright
@@ -36,13 +36,13 @@
         <div class="col-lg-4 col-md-12 mb-4">
             <div class="card">
                 <div class="view overlay zoom">
-                    <img src="@Model[i].Url" class="card-img-top" alt="">
+                    <img src="@Model[i].ImageUrl_1920x1080" class="card-img-top" alt="">
                     <a href="#">
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">@Model[i].Enddate.ToString("yyyy-MM-dd")</h4>
+                    <h4 class="card-title">@Model[i].DateTime.ToString("yyyy-MM-dd")</h4>
                     <a target="_blank" href="https://mdbootstrap.com/components/" class="btn btn-indigo btn-md">
                         Live Show
                         <i class="fa fa-image ml-1"></i>

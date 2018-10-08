@@ -7,25 +7,22 @@ namespace Attention.BLL.Models
 {
     public class HippieModel : Hippie
     {
-        public HippieModel()
+        public string ImageUrl_1920x1080 { get; private set; }
+
+        public HippieModel(Hippie hippie)
         {
-            string[] resolutions = new string[]
-            {
-                "1920x1200",
-                "1920x1080",
-                "1366x768",
-                "1280x768",
-                "1024x768",
-                "800x600",
-                "800x480",
-                "768x1280",
-                "720x1280",
-                "640x480",
-                "480x800",
-                "400x240",
-                "320x240",
-                "240x320"
-            };
+            Id = hippie.Id;
+            Hsh = hippie.Hsh;
+            DateTime = hippie.DateTime;
+            UrlBase = hippie.UrlBase;
+            Copyright = hippie.Copyright;
+            Title = hippie.Title;
+            Caption = hippie.Caption;
+            Description = hippie.Description;
+            Shares = hippie.Shares;
+            Likes = hippie.Likes;
+
+            ImageUrl_1920x1080 = $"{UrlBase}_1920x1080.jpg";
         }
     }
 }

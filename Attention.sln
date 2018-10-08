@@ -11,10 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention.App.Spider", "Att
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{966B9E08-EA71-4E17-8867-AA36A47F5FB2}"
 	ProjectSection(SolutionItems) = preProject
+		default.db = default.db
+		history.json = history.json
 		技术方案.md = 技术方案.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.App.Web", "Attention.App.Web\Attention.App.Web.csproj", "{BDE16824-74F7-48B8-8D6E-A351DC3FE984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention.App.Web", "Attention.App.Web\Attention.App.Web.csproj", "{BDE16824-74F7-48B8-8D6E-A351DC3FE984}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

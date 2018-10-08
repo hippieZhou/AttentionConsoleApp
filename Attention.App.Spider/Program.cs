@@ -1,10 +1,12 @@
 ﻿using Attention.BLL.Clients;
 using Attention.BLL.Services;
 using Attention.DAL;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,7 +27,7 @@ namespace Attention.App.Spider
 
             services.AddHttpClient<BingClient>();
 
-            services.AddDbContext<ApplicationDbContext>(options => { options.UseSqlite(configuration.GetConnectionString("DefaultConnection")); });
+            services.AddDbContext<AppDbContext>(options => { options.UseSqlite(configuration.GetConnectionString("DefaultConnection")); });
 
             services.AddSingleton<BingService>();
 
@@ -34,14 +36,18 @@ namespace Attention.App.Spider
             Console.WriteLine("Hello World!");
 
             BingService bingService = serviceProvider.GetService<BingService>();
-
-            var models = await bingService.GetAllBingsAsync();
-            var list = models.OrderBy(p => p.Startdate);
-            foreach (var model in list)
-            {
-                Console.WriteLine($"{model.Id} - {model.Startdate} - {model.Enddate}");
-            }
+            await MigrationAsync(bingService);
             Console.ReadKey();
+        }
+
+        private static async Task MigrationAsync(BingService bingService )
+        {
+            await bingService.MigrationAsync();
+        }
+
+        private static void Spider()
+        {
+
         }
     }
 }
