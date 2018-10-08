@@ -21,14 +21,14 @@ namespace Attention.BLL.Services
             dbContext = attentionDbContext;
         }
 
-        public async Task<List<BingModel>> GetAllHippiesAsync()
+        public async Task<List<BingModel>> GetAllBingsAsync()
         {
-            List<BingModel> hippies = await dbContext.Hippies
+            List<BingModel> bings = await dbContext.Bings
                 .OrderByDescending(p => p.DateTime)
                 .Select(p => new BingModel(p))
                 .ToListAsync();
 
-            if (hippies == null || hippies?.FirstOrDefault()?.DateTime < DateTime.Now)
+            if (bings == null || bings?.FirstOrDefault()?.DateTime < DateTime.Now)
             {
                 var today = await bingClient.GetBingModelsAsync();
                 foreach (var item in today.Images)
@@ -45,21 +45,21 @@ namespace Attention.BLL.Services
                         Shares = 0,
                         Likes = 0
                     };
-                    Bing has = hippies.FirstOrDefault(p => p.DateTime == model.DateTime);
+                    Bing has = bings.FirstOrDefault(p => p.DateTime == model.DateTime);
                     if (has == null)
                     {
-                        dbContext.Hippies.Add(model);
+                        dbContext.Bings.Add(model);
                     }
                 }
                 dbContext.SaveChanges();
             }
 
-            List<BingModel> hippieModels = await dbContext.Hippies
+            List<BingModel> bingModels = await dbContext.Bings
                 .OrderByDescending(p => p.DateTime)
                 .Select(p => new BingModel(p))
                 .ToListAsync();
 
-            return hippieModels;
+            return bingModels;
         }
 
         public async Task MigrationAsync()

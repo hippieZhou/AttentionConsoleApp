@@ -25,8 +25,9 @@ namespace Attention.App.Web.Controllers
 
         public async Task<IActionResult> Bing(int pageIndex = 1)
         {
-            var bings = await BingService.GetAllHippiesAsync();
-            PaginatedList<BingModel> list = PaginatedList<BingModel>.Create(bings.AsQueryable(), pageIndex, 100);
+            var bings = await BingService.GetAllBingsAsync();
+
+            PaginatedList<BingModel> list = PaginatedList<BingModel>.Create(bings.AsQueryable(), pageIndex, 10);
             return View(list);
         }
 

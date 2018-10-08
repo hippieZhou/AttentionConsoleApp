@@ -8,7 +8,7 @@ namespace Attention.DAL
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Bing> Hippies { get; set; }
+        public DbSet<Bing> Bings { get; set; }
         public AppDbContext(DbContextOptions options) : base(options)
         {
             Database.Migrate();
