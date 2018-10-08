@@ -17,10 +17,9 @@ namespace Attention.App.Spider
         static async Task Main(string[] args)
         {
             var builder = new ConfigurationBuilder()
-               .SetBasePath(AppContext.BaseDirectory)
-               .AddJsonFile("appsettings.json");
-
-            builder.AddEnvironmentVariables();
+              .SetBasePath(AppContext.BaseDirectory)
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+              .AddEnvironmentVariables();
             IConfiguration configuration = builder.Build();
 
             IServiceCollection services = new ServiceCollection();
@@ -35,8 +34,12 @@ namespace Attention.App.Spider
 
             Console.WriteLine("Hello World!");
 
-            BingService bingService = serviceProvider.GetService<BingService>();
-            await MigrationAsync(bingService);
+            //BingService bingService = serviceProvider.GetService<BingService>();
+            //await MigrationAsync(bingService);
+
+            BingClient bingClient = serviceProvider.GetService<BingClient>();
+            await SpiderAsync(bingClient);
+
             Console.ReadKey();
         }
 
@@ -45,9 +48,9 @@ namespace Attention.App.Spider
             await bingService.MigrationAsync();
         }
 
-        private static void Spider()
+        private static async Task SpiderAsync(BingClient client)
         {
-
+            await client.GetBingModelsAsync();
         }
     }
 }

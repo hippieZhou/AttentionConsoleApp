@@ -82,12 +82,7 @@ namespace Attention.App.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{action}/{id?}",
-                    defaults: new
-                    {
-                        controller = "Home",
-                        action = "Index",
-                    });
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
