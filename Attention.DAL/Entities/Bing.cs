@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Attention.DAL.Entities
 {
-    [Table("hippie")]
-    public class Hippie
+    [Table("BING")]
+    public class Bing
     {
         [Key]
         public int Id { get; set; }

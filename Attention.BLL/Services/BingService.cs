@@ -21,11 +21,11 @@ namespace Attention.BLL.Services
             dbContext = attentionDbContext;
         }
 
-        public async Task<List<HippieModel>> GetAllHippiesAsync()
+        public async Task<List<BingModel>> GetAllHippiesAsync()
         {
-            List<HippieModel> hippies = await dbContext.Hippies
+            List<BingModel> hippies = await dbContext.Hippies
                 .OrderByDescending(p => p.DateTime)
-                .Select(p => new HippieModel(p))
+                .Select(p => new BingModel(p))
                 .ToListAsync();
 
             if (hippies == null || hippies?.FirstOrDefault()?.DateTime < DateTime.Now)
@@ -33,7 +33,7 @@ namespace Attention.BLL.Services
                 var today = await bingClient.GetBingModelsAsync();
                 foreach (var item in today.Images)
                 {
-                    Hippie model = new Hippie
+                    Bing model = new Bing
                     {
                         Hsh = item.Hsh,
                         DateTime = DateTime.ParseExact(item.Startdate, "yyyyMMdd", null),
@@ -45,7 +45,7 @@ namespace Attention.BLL.Services
                         Shares = 0,
                         Likes = 0
                     };
-                    Hippie has = hippies.FirstOrDefault(p => p.DateTime == model.DateTime);
+                    Bing has = hippies.FirstOrDefault(p => p.DateTime == model.DateTime);
                     if (has == null)
                     {
                         dbContext.Hippies.Add(model);
@@ -54,9 +54,9 @@ namespace Attention.BLL.Services
                 dbContext.SaveChanges();
             }
 
-            List<HippieModel> hippieModels = await dbContext.Hippies
+            List<BingModel> hippieModels = await dbContext.Hippies
                 .OrderByDescending(p => p.DateTime)
-                .Select(p => new HippieModel(p))
+                .Select(p => new BingModel(p))
                 .ToListAsync();
 
             return hippieModels;
