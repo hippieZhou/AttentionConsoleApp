@@ -22,16 +22,16 @@ namespace Attention.App.Web.Controllers
 
         public async Task<IActionResult> Index(int? page)
         {
-            Trace.WriteLine(page);
             var bings = await BingService.GetAllBingsAsync();
 
             PaginatedList<BingModel> list = PaginatedList<BingModel>.Create(bings.AsQueryable().AsNoTracking(), page ?? 1, 10);
             return View(list);
         }
 
-        public IActionResult WebAPI()
+        public async Task<IActionResult> Detail(string hsh)
         {
-            return View();
+            var bing = await BingService.GetBingByHshAsync(hsh);
+            return View(bing);
         }
     }
 }

@@ -62,6 +62,12 @@ namespace Attention.BLL.Services
             return bingModels;
         }
 
+        public async Task<BingModel> GetBingByHshAsync(string hsh)
+        {
+            var bing = await dbContext.Bings.FirstOrDefaultAsync(p => p.Hsh == hsh);
+            return new BingModel(bing);
+        }
+
         public async Task MigrationAsync()
         {
             await Task.Delay(1000);
