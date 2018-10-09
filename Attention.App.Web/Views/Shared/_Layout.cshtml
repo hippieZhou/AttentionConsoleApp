@@ -11,31 +11,77 @@
     <link href="~/css/style.css" rel="stylesheet">
 </head>
 <body>
-
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark special-color-dark pt-1">
+        <div class="collapse bg-dark" id="navbarHeader">
             <div class="container">
-                <a class="navbar-brand">
-                    <img src="~/logo.png" height="30" alt="mdb logo">
-                </a>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Pay A Attention</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" ID="basicExampleNav">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a asp-area="" asp-controller="Bing" asp-action="Index" class="navbar-brand">BING</a>
-                        </li>
-                        @*<li class="nav-item">
-                            <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand">ABOUT</a>
-                        </li>*@
-                    </ul>
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Others</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a asp-area="" asp-controller="Bing" asp-action="Index" class="text-white">Bing</a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-tw mx-1">
+                                    <i class="fa fa-github text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-tw mx-1">
+                                    <i class="fa fa-twitter text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-li mx-1">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    <strong>Pay Attention</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
     </header>
+
+    @*<header>
+            <nav class="navbar navbar-expand-lg navbar-dark special-color-dark pt-1">
+                <div class="container">
+                    <a class="navbar-brand">
+                        <img src="~/logo.png" height="30" alt="mdb logo">
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Pay A Attention</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" ID="basicExampleNav">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Bing" asp-action="Index" class="navbar-brand">BING</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand">ABOUT</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>*@
 
     <main role="main">
         <div class="container">
