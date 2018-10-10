@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Linq;
@@ -34,18 +35,18 @@ namespace Attention.App.Spider
 
             Console.WriteLine("Hello World!");
 
-            //BingService bingService = serviceProvider.GetService<BingService>();
-            //await MigrationAsync(bingService);
+            BingService bingService = serviceProvider.GetService<BingService>();
+            await MigrationAsync(bingService);
 
-            BingClient bingClient = serviceProvider.GetService<BingClient>();
-            await SpiderAsync(bingClient);
+            //BingClient bingClient = serviceProvider.GetService<BingClient>();
+            //await SpiderAsync(bingClient);
 
             Console.ReadKey();
         }
 
         private static async Task MigrationAsync(BingService bingService )
         {
-            await bingService.MigrationAsync();
+            //await bingService.MigrationAsync();
         }
 
         private static async Task SpiderAsync(BingClient client)

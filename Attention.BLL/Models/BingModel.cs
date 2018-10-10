@@ -7,13 +7,12 @@ namespace Attention.BLL.Models
 {
     public class BingModel : Bing
     {
-        public string ImageUrl_1920x1080 { get; private set; }
-
         public BingModel(Bing model)
         {
             Id = model.Id;
             Hsh = model.Hsh;
             DateTime = model.DateTime;
+            Url = model.Url;
             UrlBase = model.UrlBase;
             Copyright = model.Copyright;
             Title = model.Title;
@@ -21,8 +20,6 @@ namespace Attention.BLL.Models
             Description = model.Description;
             Shares = model.Shares;
             Likes = model.Likes;
-
-            ImageUrl_1920x1080 = $"{UrlBase}_1920x1080.jpg";
         }
     }
 }

@@ -7,10 +7,12 @@ namespace Attention.DAL.Entities
     [Table("BING")]
     public class Bing
     {
+
         [Key]
         public int Id { get; set; }
         public string Hsh { get; set; }
         public DateTime DateTime { get; set; }
+        public string Url { get; set; }
         public string UrlBase { get; set; }
         public string Copyright { get; set; }
         public string Title { get; set; }

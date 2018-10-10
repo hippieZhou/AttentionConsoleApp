@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="xcopy /y $(SolutionDir)default.db $(TargetDir)" />
+    <Exec Command="xcopy /y $(SolutionDir)default.db $(TargetDir)&#xD;&#xA;xcopy /y $(SolutionDir)history.json $(TargetDir)" />
   </Target>
 
 </Project>
