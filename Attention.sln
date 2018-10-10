@@ -13,15 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		default.db = default.db
 		history.json = history.json
-		readme.md = readme.md
-		技术方案.md = 技术方案.md
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention", "Attention\Attention.csproj", "{9C492F29-CADA-41DB-A4AA-469927375CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention", "Attention\Attention.csproj", "{9C492F29-CADA-41DB-A4AA-469927375CDD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4A5E467A-992E-426A-90FD-2B0D13A3A160}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.PWA", "Attention.PWA\Attention.PWA.csproj", "{4849DBF5-FF6B-43BA-9FCB-4EDA1B0D56E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention.PWA", "Attention.PWA\Attention.PWA.csproj", "{4849DBF5-FF6B-43BA-9FCB-4EDA1B0D56E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
