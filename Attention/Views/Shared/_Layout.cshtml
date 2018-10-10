@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/mdb.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">
+                            <a asp-area="" asp-controller="Home" asp-action="About" class="text-white">About</a>
+                        </h4>
+                        <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Others</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="btn-floating btn-tw mx-1" target="_blank" href="https://www.github.com/hippiezhou">
+                                    <i class="fa fa-github text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-tw mx-1" target="_blank" href="https://twitter.com/hippiezhou">
+                                    <i class="fa fa-twitter text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-li mx-1">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    <strong>Pay Attention</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="wow fadeIn">
+        @RenderBody()
+    </main>
+
+    <footer class="page-footer font-small bg-dark pt-4">
+        <div class="container">
+            <p class="float-right">
+                <a class="js-cd-top">Back to top</a>
+            </p>
+            <p>All image resources come from the Internet and are copyrighted by the original author.</p>
+            <p> Do not use for commercial purposes, welcome!</p>
+            <p>Proudly and proudly adopt <a target="_blank" href="https://dotnet.github.io/">DotNetCore</a> and <a target="_blank" href="https://mdbootstrap.com/">MDB-Bootstrap</a></p>
+        </div>
+        <div class="footer-copyright text-center py-3">
+            © @DateTime.Now.Year Copyright:
+            <a href="https://hippiezhou.fun">hippieZhou</a>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="~/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/mdb.min.js"></script>
+    <script type="text/javascript" src="~/js/backtotop.js"></script>
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+</body>
+</html>
