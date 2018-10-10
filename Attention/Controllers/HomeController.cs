@@ -8,6 +8,7 @@ using Attention.Models;
 using Attention.BLL.Services;
 using Attention.BLL.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace Attention.Controllers
 {
@@ -19,6 +20,8 @@ namespace Attention.Controllers
         {
             BingService = service;
         }
+
+        [EnableCors("AllowSpecificOrigin")]
         public async Task<IActionResult> Index(int? page)
         {
             var bings = await BingService.GetAllBingsAsync();

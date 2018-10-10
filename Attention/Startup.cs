@@ -39,6 +39,12 @@ namespace Attention
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.AllowAnyHeader());
+            });
+
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
@@ -69,6 +75,8 @@ namespace Attention
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseStaticFiles();
             app.UseCookiePolicy();

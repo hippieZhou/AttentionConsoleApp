@@ -13,7 +13,7 @@
         <div class="row pt-4">
             <div class="col-md-7 mb-4">
                 <div class="view overlay z-depth-1-half">
-                    <img src="@Model[0].Url" class="card-img-top" alt="">
+                    <img id="img" src="@Model[0].Url" class="card-img-top" alt="">
                     <div class="mask rgba-white-light"></div>
                 </div>
             </div>
@@ -24,10 +24,10 @@
                 <p>
                     @Model[0].Copyright
                 </p>
-                <a class="btn btn-indigo btn-md" onclick="download(@Model[0].Url)">
+                <button class="btn btn-indigo btn-md" onclick="dlImage()">
                     Download
                     <i class="fa fa-download ml-1"></i>
-                </a>
+                </button>
                 <a class="btn btn-indigo btn-md"
                    asp-action="Detail" asp-controller="Home" asp-route-hsh="@Model[0].Hsh">
                     Live Show
@@ -42,7 +42,7 @@
                     <div class="card">
                         <div class="view overlay zoom">
                             <img src="@Model[i].Url" class="card-img-top" alt="">
-                            <a href="#">
+                            <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
                         </div>
@@ -79,7 +79,7 @@
                     </a>
                 </li>
 
-                <li class="page-item">
+                @*<li class="page-item">
                     <a asp-action="Index" asp-controller="Home" asp-route-page="1" class="page-link"> 1 </a>
                 </li>
                 ...
@@ -92,7 +92,8 @@
                 ...
                 <li class="page-item">
                     <a asp-action="Index" asp-controller="Home" asp-route-page="@Model.TotalPages" class="page-link"> @Model.TotalPages </a>
-                </li>
+                </li>*@
+
                 <li class="page-item @nextDisabled">
                     <a asp-action="Index"
                        asp-controller="Home"
@@ -114,13 +115,14 @@
 </div>
 
 <script>
-    function download(src) {
-        var $a = document.createElement('a');
-        $a.setAttribute("href", src);
-        $a.setAttribute("download", "");
-
-        var evObj = document.createEvent('MouseEvents');
-        evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-        $a.dispatchEvent(evObj);
-    };
+    function dlImage() {
+        var src = document.getElementById("img").getAttribute("src");
+        console.log(src);
+        var x = new XMLHttpRequest();
+        x.withCredentials = true;
+        x.open("GET", src, true);
+        x.responseType = "blob";
+        x.onload = function (e) { download(e.target.response, "awesomesauce.png", "image/png"); };
+        x.send();
+    }
 </script>
