@@ -79,16 +79,20 @@
                     </a>
                 </li>
 
-                @{
-                    var count = @Math.Min(10, Model.TotalPages);
-                }
-
-                @for (int i = 1; i < count; i++)
+                <li class="page-item">
+                    <a asp-action="Index" asp-controller="Home" asp-route-page="1" class="page-link"> 1 </a>
+                </li>
+                ...
+                @for (int i = 1; i < 6 && i < Model.TotalPages; i++)
                 {
                     <li class="page-item">
                         <a asp-action="Index" asp-controller="Home" asp-route-page="@(Model.PageIndex + i)" class="page-link"> @(Model.PageIndex + i) </a>
                     </li>
                 }
+                ...
+                <li class="page-item">
+                    <a asp-action="Index" asp-controller="Home" asp-route-page="@Model.TotalPages" class="page-link"> @Model.TotalPages </a>
+                </li>
                 <li class="page-item @nextDisabled">
                     <a asp-action="Index"
                        asp-controller="Home"
