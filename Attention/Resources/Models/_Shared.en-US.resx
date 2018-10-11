@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="Back to top" xml:space="preserve">
     <value>Back to top</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>Others</value>
   </data>
 </root>

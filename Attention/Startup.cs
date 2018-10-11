@@ -43,6 +43,16 @@ namespace Attention
                 options.ResourcesPath = "Resources";
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                    });
+            });
+
+
             services.AddMvc()
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -84,7 +94,6 @@ namespace Attention
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            //https://www.cnblogs.com/lwqlun/p/9764243.html
             IList<CultureInfo> supportedCultures = new List<CultureInfo>
             {
                 new CultureInfo("en-US"),

@@ -21,6 +21,7 @@ namespace Attention.Controllers
             BingService = service;
         }
 
+        [EnableCors("AllowSpecificOrigin")]
         public async Task<IActionResult> Index(int? page)
         {
             var bings = await BingService.GetAllBingsAsync();
@@ -28,6 +29,8 @@ namespace Attention.Controllers
             PaginatedList<BingModel> list = PaginatedList<BingModel>.Create(bings.AsQueryable().AsNoTracking(), page ?? 1, 10);
             return View(list);
         }
+
+        [EnableCors("AllowSpecificOrigin")]
         public async Task<IActionResult> Detail(string hsh)
         {
             var bing = await BingService.GetBingByHshAsync(hsh);
