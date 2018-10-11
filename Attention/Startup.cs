@@ -43,19 +43,20 @@ namespace Attention
                 options.ResourcesPath = "Resources";
             });
 
+            services.AddMvc()
+                .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins",
                     builder =>
                     {
-                        builder.AllowAnyOrigin();
+                        builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
                     });
             });
-
-
-            services.AddMvc()
-                .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -89,7 +90,7 @@ namespace Attention
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCors("AllowSpecificOrigin");
+            app.UseCors("AllowAllOrigins");
 
             app.UseStaticFiles();
             app.UseCookiePolicy();

@@ -21,7 +21,7 @@ namespace Attention.Controllers
             BingService = service;
         }
 
-        [EnableCors("AllowSpecificOrigin")]
+        [EnableCors("AllowAllOrigins")]
         public async Task<IActionResult> Index(int? page)
         {
             var bings = await BingService.GetAllBingsAsync();
@@ -30,7 +30,7 @@ namespace Attention.Controllers
             return View(list);
         }
 
-        [EnableCors("AllowSpecificOrigin")]
+        [EnableCors("AllowAllOrigins")]
         public async Task<IActionResult> Detail(string hsh)
         {
             var bing = await BingService.GetBingByHshAsync(hsh);

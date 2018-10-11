@@ -124,7 +124,7 @@
     <value>回到顶部</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>我是一名 .Net 开发者，做过 UWP、WPF、Python。目前从事着 WPF 相关的开发工作，同时也对 .NetCore 一直持续关注和学习着，更多的个人信息请点击 关于 页面进行查阅。</value>
+    <value>我是一名 .Net 开发者，做过 UWP、WPF、Python。目前从事着 WPF 相关的开发工作，同时也对 .NetCore 一直持续关注和学习着，更多的个人信息请点击 关于 按钮进行查阅。</value>
   </data>
   <data name="Others" xml:space="preserve">
     <value>其它</value>
