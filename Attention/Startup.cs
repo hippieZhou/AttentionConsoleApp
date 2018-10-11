@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Attention.BLL.Clients;
@@ -8,6 +9,7 @@ using Attention.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,19 +38,20 @@ namespace Attention
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.AddCors(options =>
+            services.AddLocalization(options => 
             {
-                options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.AllowAnyHeader());
+                options.ResourcesPath = "Resources";
             });
+
+            services.AddMvc()
+                .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+
             services.AddHttpClient<BingClient>()
                 .AddTransientHttpErrorPolicy(
                 builder => builder.WaitAndRetryAsync(new[]
@@ -80,6 +83,19 @@ namespace Attention
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            //https://www.cnblogs.com/lwqlun/p/9764243.html
+            IList<CultureInfo> supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("zh-CN"),
+            };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
 
             app.UseMvc(routes =>
             {

@@ -7,7 +7,6 @@
 }
 
 <div class="container">
-
     @if (Model.Count > 0)
     {
         <div class="row pt-4">
@@ -24,7 +23,7 @@
                 <p>
                     @Model[0].Copyright
                 </p>
-                <button class="btn btn-indigo btn-md" onclick="dlImage()">
+                <button class="btn btn-indigo btn-md" onclick="downloadImage()">
                     Download
                     <i class="fa fa-download ml-1"></i>
                 </button>
@@ -80,19 +79,19 @@
                 </li>
 
                 @*<li class="page-item">
-                    <a asp-action="Index" asp-controller="Home" asp-route-page="1" class="page-link"> 1 </a>
-                </li>
-                ...
-                @for (int i = 1; i < 6 && i < Model.TotalPages; i++)
-                {
-                    <li class="page-item">
-                        <a asp-action="Index" asp-controller="Home" asp-route-page="@(Model.PageIndex + i)" class="page-link"> @(Model.PageIndex + i) </a>
+                        <a asp-action="Index" asp-controller="Home" asp-route-page="1" class="page-link"> 1 </a>
                     </li>
-                }
-                ...
-                <li class="page-item">
-                    <a asp-action="Index" asp-controller="Home" asp-route-page="@Model.TotalPages" class="page-link"> @Model.TotalPages </a>
-                </li>*@
+                    ...
+                    @for (int i = 1; i < 6 && i < Model.TotalPages; i++)
+                    {
+                        <li class="page-item">
+                            <a asp-action="Index" asp-controller="Home" asp-route-page="@(Model.PageIndex + i)" class="page-link"> @(Model.PageIndex + i) </a>
+                        </li>
+                    }
+                    ...
+                    <li class="page-item">
+                        <a asp-action="Index" asp-controller="Home" asp-route-page="@Model.TotalPages" class="page-link"> @Model.TotalPages </a>
+                    </li>*@
 
                 <li class="page-item @nextDisabled">
                     <a asp-action="Index"
@@ -115,7 +114,7 @@
 </div>
 
 <script>
-    function dlImage() {
+    function downloadImage() {
         var src = document.getElementById("img").getAttribute("src");
         console.log(src);
         var x = new XMLHttpRequest();

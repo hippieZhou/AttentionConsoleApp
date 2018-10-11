@@ -21,7 +21,6 @@ namespace Attention.Controllers
             BingService = service;
         }
 
-        [EnableCors("AllowSpecificOrigin")]
         public async Task<IActionResult> Index(int? page)
         {
             var bings = await BingService.GetAllBingsAsync();
@@ -38,13 +37,6 @@ namespace Attention.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
 
             return View();
         }
