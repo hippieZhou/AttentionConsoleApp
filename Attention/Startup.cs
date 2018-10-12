@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Polly;
 
 namespace Attention
@@ -95,6 +96,9 @@ namespace Attention
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            //var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            //app.UseRequestLocalization(options.Value);
+
             IList<CultureInfo> supportedCultures = new List<CultureInfo>
             {
                 new CultureInfo("en-US"),
@@ -106,6 +110,7 @@ namespace Attention
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
