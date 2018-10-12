@@ -1,4 +1,7 @@
-﻿@using Attention.BLL.Models
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Attention.BLL.Models
+
+@inject IViewLocalizer SharedLocalizer
 @model PaginatedList<BingModel>
 
 @{
@@ -23,12 +26,12 @@
                     @Model[0].Copyright
                 </p>
                 <button class="btn btn-indigo btn-md" onclick="downloadImage()">
-                    Download
+                    @SharedLocalizer["Download"]
                     <i class="fa fa-download ml-1"></i>
                 </button>
                 <a class="btn btn-indigo btn-md"
                    asp-action="Detail" asp-controller="Home" asp-route-hsh="@Model[0].Hsh">
-                    Live Show
+                    @SharedLocalizer["Live Show"]
                     <i class="fa fa-image ml-1"></i>
                 </a>
             </div>
@@ -48,7 +51,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <a class="btn btn-indigo btn-md"
                                    asp-action="Detail" asp-controller="Home" asp-route-hsh="@Model[i].Hsh">
-                                    Live Show
+                                    @SharedLocalizer["Live Show"]
                                     <i class="fa fa-image ml-1"></i>
                                 </a>
                                 <small class="text-muted">@Model[i].DateTime.ToString("yyyy-MM-dd")</small>

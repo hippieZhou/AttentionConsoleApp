@@ -106,7 +106,6 @@ namespace Attention
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -1,4 +1,7 @@
-﻿@using Attention.BLL.Models
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Attention.BLL.Models
+
+@inject IViewLocalizer SharedLocalizer
 @model BingModel
 
 @{
@@ -22,7 +25,8 @@
 
             <a class="fa-lg p-2 m-2 tw-ic"><i class="fa fa-heart red-text"></i></a>
             <button type="button" class="btn btn-outline-info btn-rounded waves-effect">
-                <i class="fa fa-download pr-2" aria-hidden="true"></i>Download
+                <i class="fa fa-download pr-2" aria-hidden="true"></i>
+                @SharedLocalizer["Download"]
             </button>
 
             <a class="fa-lg p-2 m-2 li-ic"><i class="fa fa-share-alt green-text"></i></a>
