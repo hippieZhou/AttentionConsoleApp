@@ -11,6 +11,7 @@ namespace Attention.DAL
         public DbSet<Bing> Bings { get; set; }
         public AppDbContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureCreated();
             Database.Migrate();
         }
     }

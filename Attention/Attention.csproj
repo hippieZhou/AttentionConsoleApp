@@ -17,6 +17,12 @@
     <ProjectReference Include="..\Attention.BLL\Attention.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="default.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="xcopy /y $(SolutionDir)default.db $(ProjectDir)" />
   </Target>
