@@ -47,8 +47,13 @@ namespace Attention.Controllers
         [EnableCors("AllowAllOrigins")]
         public async Task<IActionResult> Detail(string hsh)
         {
-            var bing = await BingService.GetBingByHshAsync(hsh);
-            return View(bing);
+            if (string.IsNullOrWhiteSpace(hsh))
+                return RedirectToAction("Index");
+            else
+            {
+                var bing = await BingService.GetBingByHshAsync(hsh);
+                return View(bing);
+            }
         }
 
         public IActionResult About()
