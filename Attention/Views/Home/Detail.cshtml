@@ -9,28 +9,31 @@
 }
 
 <div class="container">
-    <div class="row pt-4">
-        <div class="jumbotron text-center">
-            <h4 class="card-title font-bold pb-2"><strong>@Model.Title</strong></h4>
-            <div class="view overlay my-4">
-                <img src="@Model.Url" class="img-fluid" alt="">
-                <a>
-                    <div class="mask rgba-white-slight"></div>
+    @if (Model != null)
+    {
+        <div class="row pt-4">
+            <div class="jumbotron text-center">
+                <h4 class="card-title font-bold pb-2"><strong>@Model.Title</strong></h4>
+                <div class="view overlay my-4">
+                    <img src="@Model.Url" class="img-fluid" alt="">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <h5 class="indigo-text font-bold mb-4">Photography</h5>
+                <p class="card-text text-left">
+                    @Model.Description
+                </p>
+
+                <a class="fa-lg p-2 m-2 tw-ic"><i class="fa fa-heart red-text"></i></a>
+                <a class="btn btn-outline-info btn-rounded waves-effect"
+                   asp-controller="Home" asp-action="Download" asp-route-url="@Model.Url">
+                    <i class="fa fa-download pr-2" aria-hidden="true"></i>
+                    @SharedLocalizer["Download"]
                 </a>
+
+                <a class="fa-lg p-2 m-2 li-ic"><i class="fa fa-share-alt green-text"></i></a>
             </div>
-            <h5 class="indigo-text font-bold mb-4">Photography</h5>
-            <p class="card-text text-left">
-                @Model.Description
-            </p>
-
-            <a class="fa-lg p-2 m-2 tw-ic"><i class="fa fa-heart red-text"></i></a>
-            <a class="btn btn-outline-info btn-rounded waves-effect"
-               asp-controller="Home" asp-action="Download" asp-route-url="@Model.Url">
-                <i class="fa fa-download pr-2" aria-hidden="true"></i>
-                @SharedLocalizer["Download"]
-            </a>
-
-            <a class="fa-lg p-2 m-2 li-ic"><i class="fa fa-share-alt green-text"></i></a>
         </div>
-    </div>
+    }
 </div>
