@@ -71,6 +71,12 @@ namespace Attention.BLL.Services
             return new BingModel(bing);
         }
 
+        public async Task<byte[]> DownLoadImageAsync(string url)
+        {
+            byte[] fileBytes = await bingClient.DownLoadImageAsync(url);
+            return fileBytes;
+        }
+
         public async Task MigrationAsync()
         {
             //var strs = await bingClient.GetBingModelsAsync();

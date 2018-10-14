@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace Attention.Controllers
 {
@@ -35,7 +36,6 @@ namespace Attention.Controllers
             BingService = service;
         }
 
-        [EnableCors("AllowAllOrigins")]
         public async Task<IActionResult> Index(int? page)
         {
             var bings = await BingService.GetAllBingsAsync();
@@ -44,7 +44,6 @@ namespace Attention.Controllers
             return View(list);
         }
 
-        [EnableCors("AllowAllOrigins")]
         public async Task<IActionResult> Detail(string hsh)
         {
             if (string.IsNullOrWhiteSpace(hsh))
@@ -54,6 +53,14 @@ namespace Attention.Controllers
                 var bing = await BingService.GetBingByHshAsync(hsh);
                 return View(bing);
             }
+        }
+
+        public async Task<FileResult> Download(string url)
+        {
+            FileInfo info = new FileInfo(url);
+            string name = info.Name;
+            byte[] fileBytes = await BingService.DownLoadImageAsync(url);
+            return File(fileBytes, "application/x-msdownload", name);
         }
 
         public IActionResult About()

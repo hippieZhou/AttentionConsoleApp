@@ -24,10 +24,11 @@
             </p>
 
             <a class="fa-lg p-2 m-2 tw-ic"><i class="fa fa-heart red-text"></i></a>
-            <button type="button" class="btn btn-outline-info btn-rounded waves-effect">
+            <a class="btn btn-outline-info btn-rounded waves-effect"
+               asp-controller="Home" asp-action="Download" asp-route-url="@Model.Url">
                 <i class="fa fa-download pr-2" aria-hidden="true"></i>
                 @SharedLocalizer["Download"]
-            </button>
+            </a>
 
             <a class="fa-lg p-2 m-2 li-ic"><i class="fa fa-share-alt green-text"></i></a>
         </div>

@@ -88,5 +88,13 @@ namespace Attention.BLL.Clients
             });
             return model;
         }
+
+        public async Task<byte[]> DownLoadImageAsync(string url)
+        {
+            HttpResponseMessage message = await _client.GetAsync(url).ConfigureAwait(false);
+            message.EnsureSuccessStatusCode();
+            byte[] fileBytes = await message.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+            return fileBytes;
+        }
     }
 }

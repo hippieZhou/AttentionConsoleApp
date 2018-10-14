@@ -25,10 +25,10 @@
                 <p>
                     @Model[0].Copyright
                 </p>
-                <button class="btn btn-indigo btn-md" onclick="downloadImage()">
+                <a class="btn btn-indigo btn-md" asp-controller="Home" asp-action="Download" asp-route-url="@Model[0].Url">
                     @SharedLocalizer["Download"]
                     <i class="fa fa-download ml-1"></i>
-                </button>
+                </a>
                 <a class="btn btn-indigo btn-md"
                    asp-action="Detail" asp-controller="Home" asp-route-hsh="@Model[0].Hsh">
                     @SharedLocalizer["Live Show"]
@@ -108,16 +108,3 @@
         </nav>
     }
 </div>
-
-<script>
-    function downloadImage() {
-        var src = document.getElementById("img").getAttribute("src");
-        console.log(src);
-        var x = new XMLHttpRequest();
-        x.withCredentials = true;
-        x.open("GET", src, true);
-        x.responseType = "blob";
-        x.onload = function (e) { download(e.target.response, "awesomesauce.png", "image/png"); };
-        x.send();
-    }
-</script>

@@ -63,17 +63,6 @@ namespace Attention
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAllOrigins",
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
-                    });
-            });
-
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
@@ -105,8 +94,6 @@ namespace Attention
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
-            app.UseCors("AllowAllOrigins");
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
