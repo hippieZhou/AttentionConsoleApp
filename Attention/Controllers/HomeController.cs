@@ -55,7 +55,7 @@ namespace Attention.Controllers
             }
         }
 
-        public async Task<FileResult> Download(string url)
+        public async Task<IActionResult> Download(string url)
         {
             FileInfo info = new FileInfo(url);
             string name = info.Name;
