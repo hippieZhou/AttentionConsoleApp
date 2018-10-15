@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Attention.DAL.Repositories
 {
-    public class BaseRepository<TEntity> where TEntity : class
+    public class BaseRepository<TEntity> where TEntity : class, new()
     {
         private DbContext _context;
         private DbSet<TEntity> _entity;

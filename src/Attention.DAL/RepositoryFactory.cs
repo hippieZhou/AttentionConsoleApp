@@ -1,21 +1,20 @@
 ﻿using Attention.DAL.Repositories;
-using System.Collections.Generic;
-using System.Text;
+using System;
 
 namespace Attention.DAL
 {
     public class RepositoryFactory
     {
-        //private readonly IServiceProvider _provider;
+        private readonly IServiceProvider _provider;
 
-        //public RepositoryFactory(System.IServiceProvider serviceProvider)
-        //{
-        //    _provider = serviceProvider;
-        //}
+        public RepositoryFactory(IServiceProvider serviceProvider)
+        {
+            _provider = serviceProvider;
+        }
 
-        //public BingRepository GetBingRepository()
-        //{
-        //    return _provider.GetService<BingRepository>();
-        //}
+        public BingRepository GetBingRepository()
+        {
+            return _provider.GetService(Type.GetType(nameof(BingRepository))) as BingRepository;
+        }
     }
 }
