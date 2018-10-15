@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="xcopy /y $(SolutionDir)default.db $(ProjectDir)" />
+    <Exec Command="xcopy /y $(SolutionDir)\src\Asserts\default.db $(ProjectDir)" />
   </Target>
 
 </Project>
