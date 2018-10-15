@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Attention.BLL;
 using Attention.BLL.Clients;
 using Attention.BLL.Services;
 using Attention.DAL;
@@ -63,12 +64,12 @@ namespace Attention
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddTransient<AppInitializer>().AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            }, ServiceLifetime.Scoped);
 
-            services.AddHttpClient<BingClient>()
+            services.AddScoped<BingService>().AddHttpClient<BingClient>()
                 .AddTransientHttpErrorPolicy(
                 builder => builder.WaitAndRetryAsync(new[]
                 {
@@ -76,22 +77,20 @@ namespace Attention
                     TimeSpan.FromSeconds(5),
                     TimeSpan.FromSeconds(10)
                 }));
-
-            services.AddScoped<BingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IServiceScopeFactory scopeFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             if (env.IsDevelopment())
             {
+                loggerFactory.AddDebug(LogLevel.Information);
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                loggerFactory.AddConsole(LogLevel.Error);
                 app.UseExceptionHandler("/Home/Error");
             }
 
@@ -107,6 +106,12 @@ namespace Attention
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using (var scope = scopeFactory.CreateScope())
+            {
+                var inintializer = scope.ServiceProvider.GetService<AppInitializer>();
+                inintializer.SeedAsync().Wait();
+            }
         }
     }
 }

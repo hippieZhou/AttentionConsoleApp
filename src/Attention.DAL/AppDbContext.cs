@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace Attention.DAL
@@ -12,7 +13,13 @@ namespace Attention.DAL
         public AppDbContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
-            Database.Migrate();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Bing>().ToTable("BING");
         }
     }
 }
