@@ -21,18 +21,17 @@
                     </a>
                 </div>
                 <h5 class="indigo-text font-bold mb-4">Photography</h5>
+                <figcaption class="figure-caption text-center mb-4">@Model.Copyright</figcaption>
                 <p class="card-text text-left">
                     @Model.Description
                 </p>
-
-                <a class="fa-lg p-2 m-2 tw-ic"><i class="fa fa-heart red-text"></i></a>
+                <a class="fa-lg p-2 m-2 tw-ic" title="@Model.Likes"><i class="fa fa-heart red-text"></i></a>
                 <a class="btn btn-outline-info btn-rounded waves-effect"
                    asp-controller="Home" asp-action="Download" asp-route-url="@Model.Url">
                     <i class="fa fa-download pr-2" aria-hidden="true"></i>
                     @SharedLocalizer["Download"]
                 </a>
-
-                <a class="fa-lg p-2 m-2 li-ic"><i class="fa fa-share-alt green-text"></i></a>
+                <a class="fa-lg p-2 m-2 li-ic" title="@Model.Shares"><i class="fa fa-share-alt green-text"></i></a>
             </div>
         </div>
     }
