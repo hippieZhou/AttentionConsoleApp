@@ -64,10 +64,10 @@ namespace Attention
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddTransient<AppInitializer>().AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-            }, ServiceLifetime.Scoped);
+            }, ServiceLifetime.Scoped).AddTransient<AppInitializer>();
 
             services.AddScoped<BingService>().AddHttpClient<BingClient>()
                 .AddTransientHttpErrorPolicy(
