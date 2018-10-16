@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
 using Attention.BLL;
 using Attention.BLL.Clients;
 using Attention.BLL.Services;
@@ -10,6 +9,7 @@ using Attention.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -48,7 +48,7 @@ namespace Attention
             services.AddLocalization(options =>
             {
                 options.ResourcesPath = "Resources";
-            }).Configure<RequestLocalizationOptions>(options => 
+            }).Configure<RequestLocalizationOptions>(options =>
             {
                 options.DefaultRequestCulture = new RequestCulture("en-US");
                 options.SupportedCultures = supportedCultures;
@@ -77,6 +77,10 @@ namespace Attention
                     TimeSpan.FromSeconds(5),
                     TimeSpan.FromSeconds(10)
                 }));
+            services.Configure<ForwardedHeadersOptions>(options => 
+            {
+                options.KnownProxies.Add(IPAddress.Parse("39.108.48.203"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,6 +97,11 @@ namespace Attention
                 loggerFactory.AddConsole(LogLevel.Error);
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             app.UseStaticFiles();
             app.UseCookiePolicy();

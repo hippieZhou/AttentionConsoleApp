@@ -64,3 +64,4 @@
 - [localization-in-asp-net-core-2-0-web-application](https://stackoverflow.com/questions/48285484/localization-in-asp-net-core-2-0-web-application)
 - [深入研究.NET Core的本地化机制](https://www.cnblogs.com/lwqlun/p/9764243.html)
 - [Adding Localisation to an ASP.NET Core application](https://andrewlock.net/adding-localisation-to-an-asp-net-core-application/)
+- [Host ASP.NET Core on Linux with Nginx](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.1&tabs=aspnetcore2x)
