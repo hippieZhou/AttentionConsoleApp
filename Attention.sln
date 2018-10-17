@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention.DAL", "src\Attent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attention", "src\Attention\Attention.csproj", "{5E737CC1-0FF3-4556-99EC-43FE9CE77C4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attention.Tests", "Attention.Tests\Attention.Tests.csproj", "{BC1CE1B2-2341-4ED8-8D46-2013EE81E786}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +43,6 @@ Global
 		{5E737CC1-0FF3-4556-99EC-43FE9CE77C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E737CC1-0FF3-4556-99EC-43FE9CE77C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E737CC1-0FF3-4556-99EC-43FE9CE77C4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC1CE1B2-2341-4ED8-8D46-2013EE81E786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC1CE1B2-2341-4ED8-8D46-2013EE81E786}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC1CE1B2-2341-4ED8-8D46-2013EE81E786}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC1CE1B2-2341-4ED8-8D46-2013EE81E786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,7 +30,7 @@
                     <i class="fa fa-download ml-1"></i>
                 </a>
                 <a class="btn btn-indigo btn-md"
-                   asp-action="Detail" asp-controller="Home" asp-route-hsh="@Model[0].Hsh">
+                   asp-action="Detail" asp-controller="Home" asp-route-id="@Model[0].Id">
                     @SharedLocalizer["Live Show"]
                     <i class="fa fa-image ml-1"></i>
                 </a>
@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <a class="btn btn-indigo btn-md"
-                                   asp-action="Detail" asp-controller="Home" asp-route-hsh="@Model[i].Hsh">
+                                   asp-action="Detail" asp-controller="Home" asp-route-id="@Model[i].Id">
                                     @SharedLocalizer["Live Show"]
                                     <i class="fa fa-image ml-1"></i>
                                 </a>

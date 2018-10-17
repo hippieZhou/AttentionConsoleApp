@@ -44,15 +44,10 @@ namespace Attention.Controllers
             return View(list);
         }
 
-        public async Task<IActionResult> Detail(string hsh)
+        public async Task<IActionResult> Detail(int id)
         {
-            if (string.IsNullOrWhiteSpace(hsh))
-                return RedirectToAction("Index");
-            else
-            {
-                var bing = await BingService.GetBingByHshAsync(hsh);
-                return View(bing);
-            }
+            var bing = await BingService.GetBingByIdAyncs(id);
+            return View(bing);
         }
 
         public async Task<IActionResult> Download(string url)
